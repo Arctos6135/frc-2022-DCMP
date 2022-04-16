@@ -23,15 +23,15 @@ public class DistanceAim extends CommandBase {
 
     @Override 
     public void initialize() {
-        DistanceAim.limelightDetected = shooter.getLimelight().hasValidTargets(); 
+        /* DistanceAim.limelightDetected = shooter.getLimelight().hasValidTargets(); 
         DistanceAim.shotDistance = shooter.getLimelight().estimateDistance(
             Constants.LIMELIGHT_HEIGHT, Constants.TARGET_HEIGHT, Constants.LIMELIGHT_ANGLE
-        );
+        ); */
     }
 
     @Override 
     public void execute() {
-        if (shooter.getLimelight().hasValidTargets()) {
+        /* if (shooter.getLimelight().hasValidTargets()) {
             DistanceAim.limelightDetected = true; 
             
             double distance = shooter.getLimelight().estimateDistance(
@@ -45,7 +45,7 @@ public class DistanceAim extends CommandBase {
             } else {
                 DistanceAim.shooterRightDistance = false; 
             } 
-        }  
+        }  */
     }
 
     @Override 

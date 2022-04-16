@@ -122,9 +122,9 @@ public class RobotContainer {
 		); 
 
 		shooterSubsystem = new Shooter(Constants.MAIN_SHOOTER_MOTOR, Constants.AUXILLIARY_SHOOTER_MOTOR);
-		shooterSubsystem.setDefaultCommand(
+		/* shooterSubsystem.setDefaultCommand(
 			new DistanceAim(shooterSubsystem)
-		); 
+		); */ 
 
 		autonomous = new Autonomous(); 
 
@@ -238,9 +238,9 @@ public class RobotContainer {
 		}, EntryListenerFlags.kUpdate); 
 
 		// Vision System
-		shooterSubsystem.getLimelight().setStreamingMode(Limelight.StreamingMode.STANDARD); 
+		/* shooterSubsystem.getLimelight().setStreamingMode(Limelight.StreamingMode.STANDARD); 
 		limelightTab.add("Limelight", Limelight.STREAM_URL).withWidget(BuiltInWidgets.kCameraStream)
-			.withPosition(0, 0).withSize(10, 10); 
+			.withPosition(0, 0).withSize(10, 10); */
 		
 		// Climbing Configurations
 		InstantCommand climbOverrideCommand = new InstantCommand(() -> {
@@ -347,8 +347,6 @@ public class RobotContainer {
 		Button shooterOverheatOverrideButton = new JoystickButton(operatorController, Constants.OVERRIDE_SHOOTER_PROTECTION_BUTTON); 
 		Button stopShooterFeederButton = new JoystickButton(operatorController, Constants.STOP_SHOOTER_FEEDER_BUTTON); 
 
-		Button autoAimButton = new JoystickButton(operatorController, Constants.AUTO_AIM_BUTTON);
-
 		// Driver Button Bindings
 		reverseDriveButton.whenPressed(() -> {
 			TeleopDrive.toggleReverseDrive();
@@ -416,10 +414,6 @@ public class RobotContainer {
 
 		shootHighHubRPMButton.whenPressed(
 			new PrepareShooterPID(shooterSubsystem, Constants.HIGH_HUB_RPM)
-		);
-
-		autoAimButton.whenHeld(
-			new AutoAim(drivetrain, shooterSubsystem)
 		);
 
 		stopShooterFeederButton.whenPressed(new InstantCommand(() -> {

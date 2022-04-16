@@ -36,7 +36,7 @@ public class AutoAim extends CommandBase {
 
     @Override 
     public void execute() {
-        this.tx = shooter.getLimelight().getHorizontalAngle();
+        // this.tx = shooter.getLimelight().getHorizontalAngle();
         double heading_error = -this.tx; 
         double steering_adjust = 0;
 
